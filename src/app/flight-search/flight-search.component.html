@@ -1,0 +1,100 @@
+<div class="container mt-5 bg-info p-4 border border-secondary rounded">
+    <div *ngIf="searchFlightbyPersonON">
+        <div class="heading">
+            <h5>Search Flight by Persons</h5>
+        </div>
+
+        <form [formGroup]="searchFlightForm">
+            <div class="row pt-3">
+                <div class="col-3">
+                    <button class="btn btn-sm btn-secondary" (click)="toggleSearch()">Search by Flight Number</button>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-3">
+                    <select formControlName="origin" class="form-select">  
+                        <option disabled>Select Source</option>
+                        <option *ngFor="let city of originCities">{{city}}</option> 
+                    </select>
+                </div>  
+                <div class="col-3">
+                    <select formControlName="destination" class="form-select">  
+                        <option disabled>Select Destination</option>
+                        <option *ngFor="let city of originCities">{{city}}</option> 
+                    </select>
+                </div>
+                <div class="col-3">
+                    <input type="date" class="form-control form-control-sm p-2" 
+                    formControlName="flightDate" placeholder="DD-MM-YYYY" min={{minDate}}>
+                </div>
+                <div class="col-3">
+                    <select formControlName="persons" class="form-select">  
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option> 
+                    </select>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-3">
+                    <button class="btn btn-success" (click)="searchFlightbyPerson()">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <div *ngIf="!searchFlightbyPersonON">
+        <div class="heading">
+            <h5>Search Flight by Flight Number</h5>
+        </div>
+
+        <form [formGroup]="searchFlightNumber">
+            <div class="row pt-3">
+                <div class="col-3">
+                    <button class="btn btn-sm btn-secondary" (click)="toggleSearch()">Search by Persons</button>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-3">
+                    <input type="text" class="form-control form-control-sm" style="text-transform:uppercase"
+                    formControlName="flightNumber" placeholder="Flight Number">
+                </div>
+                <div class="col-3">
+                    <input type="date" class="form-control form-control-sm" formControlName="flightDate" min={{minDate}}>
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-3">
+                    <button class="btn btn-success" (click)="searchFlightbyNumber()">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <div *ngIf="results" class="card mt-3 p-4 border border-secondary rounded" style="background-color: #fff5fd">
+            <h6 class="card-header">Flights Available</h6>
+            <app-flight-card *ngFor="let flight of responseArray" [flight]="flight" 
+            (continueBookingTrigger)="continueBookingTrigger($event)"></app-flight-card>
+        </div>
+
+        <div *ngIf="noFlights" class="card mt-3 p-4 bg-secondary border border-secondary rounded">
+            <h6 class="card-header">No Flights Available</h6>
+        </div>
+        <div *ngIf="!scheduleAvailable && results">
+            <div class="row pt-3">
+                <div class="col-3">
+                    <button class="btn btn-sm btn-warning" (click)="goToScheduleFlightPage()" *ngIf="showAdmin">Schedule Flight</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="continueBooking">
+        <app-flight-details [flightDetails]="flightDetails"></app-flight-details>
+        <app-passenger-details [flightDetails]="flightDetails" [persons]="persons"></app-passenger-details>
+    </div>
+    
+</div>

@@ -4,6 +4,9 @@
     <div class="col-2">{{flight.duration}}</div>
     <div class="col-2">{{flight.fare}}</div>
     <div class="col"> 
-        <button class="btn btn-warning btn-sm" (click)="continueBooking()">Continue Booking</button>
+        <button class="btn btn-warning btn-sm" (click)="continueBooking(flight)" *ngIf="!showAdmin && isLoggedIn()">Continue Booking</button>
+    </div>
+    <div class="col"> 
+        <button class="btn btn-warning btn-sm" (click)="editFlight(flight)" *ngIf="showAdmin">Edit</button>
     </div>
 </div>

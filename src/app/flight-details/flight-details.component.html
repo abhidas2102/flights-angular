@@ -1,20 +1,26 @@
-<div class="row mt-2 pt-3 border border-secondary rounded">
+<div class="row mt-2 pt-3 border border-secondary rounded" style="background-color: #fff5fd">
     <div class="col-3">
-        <p>Flight Number:</p>
+        <p>Flight Number: {{flightDetails.flightNumber}}</p>
     </div>
     <div class="col-3">
-        <p>Airline Name:</p>
+        <p>Airline Name: {{flightDetails.airlineName}}</p>
     </div>
     <div class="col-3">
-        <p>Duration</p>
+        <p>Duration {{flightDetails.duration}} hrs</p>
     </div>
     <div class="col-3">
-        <p b>Fare:</p>
+        <p> Fare: {{flightDetails.fare}}</p>
     </div>
     
     <div class="row pt-2">
         <div class="col-3">
-            <p b>Avaiable Seats:</p>
+            <p> Avaiable Seats: {{flightDetails.availableSeats}}</p>
+        </div>
+        <div class="col-3">
+            <p> Source: {{flightDetails.source}}</p>
+        </div>
+        <div class="col-3">
+            <p> Destination: {{flightDetails.destination}}</p>
         </div>
     </div>
 </div>    

@@ -1,0 +1,19 @@
+<div class="container mt-5 bg-info p-4 border border-secondary rounded">
+    <div class="heading">
+        <h5>Web Check-in</h5>
+    </div>
+
+    <form [formGroup]="checkIn">
+        <div class="row pt-3">
+            <div class="col-3">
+                <input type="text" class="form-control form-control-sm" formControlName="pnr" placeholder="PNR">
+            </div>
+        </div>
+
+        <div class="row pt-3">
+            <div class="col-3">
+                <button class="btn btn-success" (click)="doCheckIn()">Check-in</button>
+            </div>
+        </div>
+    </form>
+</div>

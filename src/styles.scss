@@ -1,2 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+//@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+
+body {
+    background-image: url('http://clipart-library.com/images/dc4o5rboi.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+
+input.ng-invalid{
+    border-left: 2px solid red;
+}
+
+input.ng-valid{
+    border-left: 2px solid green;
+}
+
+.nav-link{
+    cursor: pointer;
+}

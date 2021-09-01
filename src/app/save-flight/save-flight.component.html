@@ -1,0 +1,77 @@
+<div class="container mt-5 bg-info p-4 border border-secondary rounded">
+    <div>
+        <div class="heading">
+            <h5>Save/Edit Flight Form</h5>
+        </div>
+
+        <form [formGroup]="saveFlightForm">
+            
+            <div class="row pt-3">
+                <div class="col-6">
+                    <select formControlName="source" class="form-select">  
+                        <option>Select Source</option>
+                        <option *ngIf="flight.source" value={{flight.source}}>{{flight.source}}</option>
+                        <option *ngFor="let city of originCities">{{city}}</option>
+                    </select>
+                </div> 
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <select formControlName="destination" class="form-select">  
+                        <option>Select Destination</option>
+                        <option *ngIf="flight.destination" value={{flight.destination}}>{{flight.destination}}</option>
+                        <option *ngFor="let city of originCities">{{city}}</option> 
+                    </select>
+                </div>
+            </div>
+            
+            <!--
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" formControlName="source" placeholder="Source">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" formControlName="destination" placeholder="Destination">
+                </div>
+            </div>
+        -->
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" style="text-transform:uppercase"
+                    formControlName="flightNumber" placeholder="Flight Number">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" style="text-transform:uppercase"
+                    formControlName="airlineName" placeholder="Airline Name">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="time" class="form-control form-control-sm p-2"
+                    formControlName="duration" placeholder="Duration">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="number" class="form-control form-control-sm p-2" min="0"
+                    formControlName="fare" placeholder="Fare">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="number" class="form-control form-control-sm p-2" min="50"
+                    formControlName="availableSeats" placeholder="Available Seats">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <button class="btn btn-success" (click)="saveFlight()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

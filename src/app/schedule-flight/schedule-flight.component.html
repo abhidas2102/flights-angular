@@ -1,0 +1,25 @@
+<div class="container mt-5 bg-info p-4 border border-secondary rounded">
+    <div>
+        <div class="heading">
+            <h5>Schedule Flight Form</h5>
+        </div>
+
+        <form [formGroup]="scheduleForm">
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" formControlName="depertureTime" placeholder="Deperture Time">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <input type="text" class="form-control form-control-sm p-2" formControlName="scheduleDate" placeholder="Schedule Date">
+                </div>
+            </div>
+            <div class="row pt-3">
+                <div class="col-6">
+                    <button class="btn btn-success" (click)="scheduleFlight()">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

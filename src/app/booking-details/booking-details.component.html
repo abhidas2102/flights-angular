@@ -1,0 +1,50 @@
+<div>
+    
+<div class="row mt-2 pt-3 pb-2 border border-secondary rounded" style="background-color: #fff5fd">
+    <h1 class="mb-3">{{showBookingDetails["airlineName"]}}</h1>
+        <div class="row pt-2">
+            <div class="col-4">
+                <p>Flight Number: {{showBookingDetails["flightNumber"]}}</p>
+            </div>
+            <div class="col-4">
+                <p>Airline Name: {{showBookingDetails["airlineName"]}}</p>
+            </div>
+            <div class="col-4">
+                <p>PNR: {{showBookingDetails["pnr"]}}</p>
+            </div>
+        </div>
+        
+        <div class="row pt-2">
+            <div class="col-4">
+                <p> Date of travel: 
+                    {{showBookingDetails["pnr"].slice(-8,-4)}}-{{showBookingDetails["pnr"].slice(-4,-2)}}-{{showBookingDetails["pnr"].slice(-2)}}
+                </p>
+            </div>
+            <div class="col-4">
+                <p> Deperture Time: {{showBookingDetails["depertureTime"]}}</p>
+            </div>
+            <div class="col-4">
+                <p>Duration: {{showBookingDetails["duration"]}} hrs</p>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                <p>Name:{{passenger["firstName"]}} {{passenger["lastName"]}}</p>
+            </div>
+            <div class="col-4">
+                <p>Gender: {{passenger["gender"]}}</p>
+            </div>
+            <div class="col-4">
+                <p>Age: {{passenger["age"]}}</p>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-4">
+                <p> Checkin Status: {{showBookingDetails["bookingStatus"]}}</p>
+            </div>
+        </div>
+        
+    </div>
+</div> 
